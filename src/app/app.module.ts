@@ -18,6 +18,10 @@ import { TestPageComponent } from './test-page/test-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogsComponent } from './dialogs/dialogs.component';
 
+import {MatExpansionModule, MatExpansionPanelHeader, MatExpansionPanelDescription} from '@angular/material';
+import { MatExpansionPanel, MatAccordion, MatExpansionPanelTitle} from '@angular/material';
+
+
 // import {DemoMaterialModule} from './material-module';
 
 @NgModule({
@@ -27,6 +31,8 @@ import { DialogsComponent } from './dialogs/dialogs.component';
     HomePageDashboardComponent,
     TestPageComponent,
     DialogsComponent,
+
+
 
    // DialogComponent
   ],
@@ -41,6 +47,8 @@ import { DialogsComponent } from './dialogs/dialogs.component';
     HttpClientModule,
 
     MatDialogModule,
+
+    MatExpansionModule,
   ],
   providers: [
   ],

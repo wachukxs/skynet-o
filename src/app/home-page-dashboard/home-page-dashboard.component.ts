@@ -51,7 +51,9 @@ export class HomePageDashboardComponent implements OnInit {
     this.dialogRef = this.dialog.open(DialogsComponent, {
       data: {
         animal: 'panda',
-        airport: 'NYC'
+        airport: 'NYC',
+        arr: this.all.eddf.arr,
+        dep: this.all.eddf.dep
       }
     });
   }

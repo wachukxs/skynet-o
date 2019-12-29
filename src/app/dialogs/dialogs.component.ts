@@ -1,11 +1,25 @@
 import { Component, OnInit, Inject } from '@angular/core';
-
+import { NgModule } from '@angular/core';
 
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
+// import {MatExpansionModule, MatExpansionPanelHeader, MatExpansionPanelDescription} from '@angular/material';
+
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
+  arr: Array<any>;
 }
+
+
+@NgModule({
+  imports: [
+    /* MatExpansionPanelDescription,
+    MatExpansionModule,
+    MatExpansionPanelHeader, */
+    // MatDialog,
+  ],
+})
+
 
 @Component({
   selector: 'app-dialogs',

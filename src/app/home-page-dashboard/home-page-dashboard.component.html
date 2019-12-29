@@ -1,6 +1,7 @@
 <p>Hey!</p>
 
 <!-- <button class="button" (click)="showFlights()">See flights (in console too!)</button> -->
+
 <button *ngFor="let item of all.eddf.arr; index as i;" mat-button (click)="openDialog()">Open dialog {{ item.icao24 }}</button>
 
 <button mat-button *ngIf="all.eddf.arr.length == 0">Network Error. Please reload the page</button>
