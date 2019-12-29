@@ -53,10 +53,12 @@ export class HomePageDashboardComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  showFlights() {
-    this.http.get('https://opensky-network.org/api/states/all?time=1458564121&icao24=3c6444', {headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': '*/*'
-    })}).subscribe((data) => {
+  showFlights() { // &icao24=3e1bf9
+    this.http.get('https://opensky-network.org/api/flights/arrival?airport=EDDF&begin=1517227200&end=1517230800', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*/*'
+      })
+    }).subscribe((data) => {
       console.log('data:', data);
     });
   }
