@@ -39,12 +39,19 @@ import { DialogsComponent } from '../dialogs/dialogs.component';
 
 export class HomePageDashboardComponent implements OnInit {
   dialogRef;
+  all = {
+    eddf: {
+      arr: [],
+      dep: []
+    }
+  };
   constructor(private http: HttpClient, public dialog: MatDialog) {
   }
   openDialog() {
     this.dialogRef = this.dialog.open(DialogsComponent, {
       data: {
-        animal: 'panda'
+        animal: 'panda',
+        airport: 'NYC'
       }
     });
   }
@@ -53,14 +60,17 @@ export class HomePageDashboardComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  showFlights() { // &icao24=3e1bf9
+  showFlights() { // Frankfurt International Airport (EDDF)
     this.http.get('https://opensky-network.org/api/flights/arrival?airport=EDDF&begin=1517227200&end=1517230800', {
       headers: new HttpHeaders({
         'Access-Control-Allow-Origin': '*/*'
       })
-    }).subscribe((data) => {
+    }).subscribe((data: Array<object>) => {
       console.log('data:', data);
-    });
+      this.all.eddf.arr = data;
+    }, // success path
+    error => {console.error('we had err fetching:', error); } // error path
+    );
   }
 
   ngOnInit() {

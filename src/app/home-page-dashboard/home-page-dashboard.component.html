@@ -1,8 +1,29 @@
 <p>Hey!</p>
 
 <!-- <button class="button" (click)="showFlights()">See flights (in console too!)</button> -->
+<button *ngFor="let item of all.eddf.arr; index as i;" mat-button (click)="openDialog()">Open dialog {{ item.icao24 }}</button>
 
-<button mat-button (click)="openDialog()">Open dialog</button>
+<button mat-button *ngIf="all.eddf.arr.length == 0">Network Error. Please reload the page</button>
+
+<!-- <button mat-button (click)="openDialog()">Open dialog 1</button>
+
+<button mat-button (click)="openDialog()">Open dialog 2</button>
+
+<button mat-button (click)="openDialog()">Open dialog 3</button>
+
+<button mat-button (click)="openDialog()">Open dialog 4</button>
+
+<button mat-button (click)="openDialog()">Open dialog 5</button>
+
+<button mat-button (click)="openDialog()">Open dialog 6</button>
+
+<button mat-button (click)="openDialog()">Open dialog 7</button>
+
+<button mat-button (click)="openDialog()">Open dialog 8</button>
+
+<button mat-button (click)="openDialog()">Open dialog 9</button>
+
+<button mat-button (click)="openDialog()">Open dialog 10</button> -->
 
 <!-- <mat-grid-list cols="2" rowHeight="2:1">
   <mat-grid-tile>1</mat-grid-tile>
