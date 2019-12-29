@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 
@@ -16,6 +16,7 @@ import { HomePageDashboardComponent } from './home-page-dashboard/home-page-dash
 import { TestPageComponent } from './test-page/test-page.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { DialogsComponent } from './dialogs/dialogs.component';
 
 // import {DemoMaterialModule} from './material-module';
 
@@ -25,6 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     HomePageDashboardComponent,
     TestPageComponent,
+    DialogsComponent,
+
+   // DialogComponent
   ],
   imports: [
     // DemoMaterialModule,
@@ -34,10 +38,13 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule, ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+    MatDialogModule,
   ],
   providers: [
   ],
+  entryComponents: [DialogsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
