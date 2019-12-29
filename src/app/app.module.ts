@@ -15,26 +15,36 @@ import { LoginComponent } from './login/login.component';
 import { HomePageDashboardComponent } from './home-page-dashboard/home-page-dashboard.component';
 import { TestPageComponent } from './test-page/test-page.component';
 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+// import {DemoMaterialModule} from './material-module';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomePageDashboardComponent,
-    TestPageComponent
+    TestPageComponent,
+    // HttpClientModule, HttpClient,
+    // DemoMaterialModule
   ],
   imports: [
+    // DemoMaterialModule,
     MatCardModule,
     MatButtonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    // HttpClientModule, HttpClient,
     /* RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'home-page-dashboard', component: HomePageDashboardComponent }
     ]) */
   ],
-  providers: [],
+  providers: [
+    // HttpClientModule, HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
