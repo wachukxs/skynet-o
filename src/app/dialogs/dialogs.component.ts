@@ -8,6 +8,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
   arr: Array<any>;
+  dep: Array<any>;
 }
 
 
