@@ -28,7 +28,8 @@ export interface DialogData {
   styleUrls: ['./dialogs.component.css']
 })
 export class DialogsComponent implements OnInit {
-
+  panelOpenState = false;
+  selected: string ; // = 'option2';
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit() {

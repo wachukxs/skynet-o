@@ -18,10 +18,11 @@ import { TestPageComponent } from './test-page/test-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogsComponent } from './dialogs/dialogs.component';
 
-import {MatExpansionModule, MatExpansionPanelHeader, MatExpansionPanelDescription} from '@angular/material';
-import { MatExpansionPanel, MatAccordion, MatExpansionPanelTitle} from '@angular/material';
+import {MatExpansionModule} from '@angular/material';
 
 import { MatFormFieldModule, MatInputModule} from '@angular/material';
+
+import { MatSelectModule } from '@angular/material';
 
 
 // import {DemoMaterialModule} from './material-module';
@@ -52,6 +53,8 @@ import { MatFormFieldModule, MatInputModule} from '@angular/material';
     MatFormFieldModule,
 
     MatInputModule,
+
+    MatSelectModule,
   ],
   providers: [
   ],

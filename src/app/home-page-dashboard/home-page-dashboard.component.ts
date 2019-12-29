@@ -39,17 +39,17 @@ import { DialogsComponent } from '../dialogs/dialogs.component';
 
 export class HomePageDashboardComponent implements OnInit {
   dialogRef;
-  airports: [
-    { name: 'United States Hartsfield–Jackson Atlanta International Airport', code: 'KATL' },
-    { name: 'China Beijing Capital International Airport', code: 'ZBAA' },
-    { name: 'United States Los Angeles International Airport', code: 'KLAX' },
-    { name: 'Japan Tokyo Haneda Airport', code: 'RJTT' },
-    { name: 'United Arab Emirates Dubai International Airport', code: 'OMDB' },
-    { name: 'United States O\'Hare International Airport', code: 'KORD' },
-    { name: 'United Kingdom London Heathrow Airport', code: 'EGLL' },
-    { name: 'China Shanghai Pudong International Airport', code: 'ZSPD' },
-    { name: 'Hong Kong Hong Kong International Airport', code: 'VHHH' },
-    { name: 'France Paris-Charles de Gaulle Airport', code: 'LFPG' }
+  airports = [
+    { country: 'United States', name: 'Hartsfield–Jackson Atlanta International Airport', code: 'KATL' },
+    { country: 'China', name: 'Beijing Capital International Airport', code: 'ZBAA' },
+    { country: 'United States', name: 'Los Angeles International Airport', code: 'KLAX' },
+    { country: 'Japan', name: 'Tokyo Haneda Airport', code: 'RJTT' },
+    { country: 'United Arab Emirates', name: 'Dubai International Airport', code: 'OMDB' },
+    { country: 'United States', name: 'O\'Hare International Airport', code: 'KORD' },
+    { country: 'United Kingdom', name: 'London Heathrow Airport', code: 'EGLL' },
+    { country: 'China', name: 'Shanghai Pudong International Airport', code: 'ZSPD' },
+    { country: 'Hong Kong', name: 'Hong Kong International Airport', code: 'VHHH' },
+    { country: 'France', name: 'Paris-Charles de Gaulle Airport', code: 'LFPG' }
   ];
   all = {
     KATL: {

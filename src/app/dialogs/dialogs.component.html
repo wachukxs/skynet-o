@@ -15,75 +15,53 @@
 
 <h1 mat-dialog-title>Flight Details</h1>
 <div mat-dialog-content>
-  <!-- It's is:
-  <ul>
-    <li>
-      <span *ngIf="data.animal === 'panda'">&#10003;</span> Panda
-    </li>
-    <li>
-      <span *ngIf="data.animal === 'unicorn'">&#10003;</span> Unicorn
-    </li>
-    <li>
-      <span *ngIf="data.animal === 'lion'">&#10003;</span> Lion
-    </li>
-  </ul> -->
+
+  <mat-form-field>
+    <mat-label>Select an option</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option value="arrival">Arrivals</mat-option>
+      <mat-option value="departure">Departures</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <p>You selected: {{selected}}</p>
   
 
   <mat-accordion>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Arriving flights
+          Airport data
         </mat-panel-title>
         <mat-panel-description>
-          ICAO: {{ data.arr[0].icao24 }}
+          Enter flight movement and search range
         </mat-panel-description>
       </mat-expansion-panel-header>
-
-      <p>More flight details</p>
-      <ul>
-        <li *ngFor="let f of data.arr;">
-          flight callsign: {{ f.callsign }}
-        </li>
-      </ul>
-
-      <p>
-
-      </p>
-
-    </mat-expansion-panel>
-  </mat-accordion>
-
-
-  <p>
-
-  </p>
   
-
-  <mat-accordion>
-    <mat-expansion-panel>
+      <mat-form-field>
+        <input matInput placeholder="First name">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Age">
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Departing flights
+          Self aware panel
         </mat-panel-title>
         <mat-panel-description>
-          ICAO: {{ data.arr[0].icao24 }}
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-
-      <p>More flight details</p>
-      <ul>
-        <li *ngFor="let f of data.dep;">
-          flight callsign: {{ f.callsign }}
-        </li>
-      </ul>
-
-      <p>
-
-      </p>
-
+      <p>I'm visible because I am open</p>
     </mat-expansion-panel>
   </mat-accordion>
+  
+
+
 </div>
 
 <mat-dialog-actions align="end">

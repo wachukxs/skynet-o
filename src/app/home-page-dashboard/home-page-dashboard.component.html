@@ -11,11 +11,11 @@
 
 
 <div class="content">
-  <p>Check out some of our flight details</p>
+  <p>Check out some of our flight details here</p>
 
 <!-- <button class="button" (click)="showFlights()">See flights (in console too!)</button> -->
 
-<button *ngFor="let item of airports; index as i;" mat-button (click)="openDialog(item.code)">Open dialog {{ item.name }}</button>
+<button *ngFor="let item of airports; index as i;" mat-button (click)="openDialog(item.code)">Check options for <b> {{ item.name }} </b> </button>
 
 <button mat-button *ngIf="all.KATL.arr.length == 0">Network Error. Please reload the page</button>
 
