@@ -1,1 +1,24 @@
 <p>login works!</p>
+<!--[formGroup]="loginDetails"-->
+<form [formGroup]="bioSection" (ngSubmit)="onSubmit(bioSection.value)">
+
+  <label>
+    Username:
+    <input type="text" formControlName="username">
+  </label> <br>
+<label>
+    Password:
+    <input type="text" formControlName="password">
+  </label>
+
+  <button class="button" type="submit">Login</button>
+
+
+</form>
+
+<!-- <div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="username.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div> -->
