@@ -68,6 +68,7 @@ export class HomePageDashboardComponent implements OnInit {
     }).subscribe((data: Array<object>) => {
       console.log('data:', data);
       this.all.eddf.arr = data;
+      // draw the button when we get here
     }, // success path
     error => {console.error('we had err fetching:', error); } // error path
     );
