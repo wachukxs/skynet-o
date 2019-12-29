@@ -14,9 +14,12 @@ import {MatGridTile, MatGridList} from '@angular/material';
     MatGridTile, MatGridList,
     MatCardModule,
     MatButtonModule,
-    HttpClientModule,
+    HttpClientModule, HttpClient,
     MatGridListModule
   ],
+  exports: [
+    HttpClientModule, HttpClient,
+  ]
 })
 
 @Component({
@@ -28,9 +31,12 @@ import {MatGridTile, MatGridList} from '@angular/material';
 export class HomePageDashboardComponent implements OnInit {
 
   constructor(private http: HttpClient) {
+  }
+
+  showFlights() {
     this.http.get('https://opensky-network.org/api/states/all?time=1458564121&icao24=3c6444').subscribe((data) => {
       console.log('data:', data);
-    });
+      });
   }
 
   ngOnInit() {
