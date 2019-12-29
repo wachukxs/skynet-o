@@ -239,6 +239,138 @@ export class HomePageDashboardComponent implements OnInit {
     }, // success path
       error => { console.error('we had err fetching:', error); } // error path
     );
+
+
+    // --- depatures
+
+    this.http.get('https://opensky-network.org/api/flights/departure?airport=LFPG', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*/*'
+      })
+    }).subscribe((data: Array<object>) => {
+      console.log('data:', data);
+      this.all.LFPG.dep = data;
+      // draw the button when we get here later
+    }, // success path
+      error => { console.error('we had err fetching:', error); } // error path
+    );
+
+    // Hong Kong Hong Kong International Airport
+    this.http.get('https://opensky-network.org/api/flights/departure?airport=VHHH', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*/*'
+      })
+    }).subscribe((data: Array<object>) => {
+      console.log('data:', data);
+      this.all.VHHH.dep = data;
+      // draw the button when we get here later
+    }, // success path
+      error => { console.error('we had err fetching:', error); } // error path
+    );
+
+    // China Shanghai Pudong International Airport
+    this.http.get('https://opensky-network.org/api/flights/departure?airport=ZSPD', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*/*'
+      })
+    }).subscribe((data: Array<object>) => {
+      console.log('data:', data);
+      this.all.ZSPD.dep = data;
+      // draw the button when we get here later
+    }, // success path
+      error => { console.error('we had err fetching:', error); } // error path
+    );
+
+    // United Kingdom London Heathrow Airport
+    this.http.get('https://opensky-network.org/api/flights/departure?airport=EGLL', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*/*'
+      })
+    }).subscribe((data: Array<object>) => {
+      console.log('data:', data);
+      this.all.EGLL.dep = data;
+      // draw the button when we get here later
+    }, // success path
+      error => { console.error('we had err fetching:', error); } // error path
+    );
+
+    // United States O'Hare International Airport
+    this.http.get('https://opensky-network.org/api/flights/departure?airport=KORD', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*/*'
+      })
+    }).subscribe((data: Array<object>) => {
+      console.log('data:', data);
+      this.all.KORD.dep = data;
+      // draw the button when we get here later
+    }, // success path
+      error => { console.error('we had err fetching:', error); } // error path
+    );
+
+    // United Arab Emirates Dubai International Airport
+    this.http.get('https://opensky-network.org/api/flights/departure?airport=OMDB', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*/*'
+      })
+    }).subscribe((data: Array<object>) => {
+      console.log('data:', data);
+      this.all.OMDB.dep = data;
+      // draw the button when we get here later
+    }, // success path
+      error => { console.error('we had err fetching:', error); } // error path
+    );
+
+    // Japan Tokyo Haneda Airport
+    this.http.get('https://opensky-network.org/api/flights/departure?airport=RJTT', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*/*'
+      })
+    }).subscribe((data: Array<object>) => {
+      console.log('data:', data);
+      this.all.RJTT.dep = data;
+      // draw the button when we get here later
+    }, // success path
+      error => { console.error('we had err fetching:', error); } // error path
+    );
+
+    // United States Los Angeles International Airport
+    this.http.get('https://opensky-network.org/api/flights/departure?airport=KLAX', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*/*'
+      })
+    }).subscribe((data: Array<object>) => {
+      console.log('data:', data);
+      this.all.KLAX.dep = data;
+      // draw the button when we get here later
+    }, // success path
+      error => { console.error('we had err fetching:', error); } // error path
+    );
+
+    // China Beijing Capital International Airport
+    this.http.get('https://opensky-network.org/api/flights/departure?airport=ZBAA', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*/*'
+      })
+    }).subscribe((data: Array<object>) => {
+      console.log('data:', data);
+      this.all.ZBAA.dep = data;
+      // draw the button when we get here later
+    }, // success path
+      error => { console.error('we had err fetching:', error); } // error path
+    );
+
+    // United States Hartsfield–Jackson Atlanta International Airport
+    this.http.get('https://opensky-network.org/api/flights/departure?airport=KATL', { // &begin=1517227200&end=1517230800
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*/*'
+      })
+    }).subscribe((data: Array<object>) => {
+      console.log('data:', data);
+      this.all.KATL.dep = data;
+      // draw the button when we get here later
+    }, // success path
+      error => { console.error('we had err fetching:', error); } // error path
+    );
   }
 
   ngOnInit() {
