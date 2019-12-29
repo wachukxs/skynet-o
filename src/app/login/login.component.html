@@ -1,6 +1,19 @@
-<p>Enter login details</p>
+<style>
+.content {
+    display: flex;
+    margin: 32px auto;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
 
-<form [formGroup]="bioSection" (ngSubmit)="onSubmit(bioSection.value)">
+
+<div class="content">
+  <p>Enter login details</p>
+
+<!-- <form [formGroup]="bioSection" (ngSubmit)="onSubmit(bioSection.value)">
 
   <label>
     Username:
@@ -14,11 +27,26 @@
   <button class="button" type="submit">Login</button>
 
 
-</form>
+</form> -->
 
-<!-- <div class="example-container">
-  <mat-form-field>
-    <input matInput placeholder="Enter your email" [formControl]="email" required>
-    <mat-error *ngIf="username.invalid">{{getErrorMessage()}}</mat-error>
-  </mat-form-field>
-</div> -->
+<div class="example-container example-form">
+  <form [formGroup]="bioSection" (ngSubmit)="onSubmit(bioSection.value)">
+    <mat-form-field><!--[formControl]="bioSection.username"-->
+      <input matInput placeholder="Enter username" formControlName="username" required>
+      <mat-error *ngIf="bioSection.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <br>
+  
+    <mat-form-field><!--[formControl]="bioSection.username"-->
+      <input matInput placeholder="Enter password" formControlName="password" required>
+      <mat-error *ngIf="bioSection.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <button class="button" type="submit">Login</button>
+  </form>
+</div>
+
+</div>

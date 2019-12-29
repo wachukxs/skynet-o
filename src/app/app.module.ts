@@ -21,6 +21,8 @@ import { DialogsComponent } from './dialogs/dialogs.component';
 import {MatExpansionModule, MatExpansionPanelHeader, MatExpansionPanelDescription} from '@angular/material';
 import { MatExpansionPanel, MatAccordion, MatExpansionPanelTitle} from '@angular/material';
 
+import { MatFormFieldModule, MatInputModule} from '@angular/material';
+
 
 // import {DemoMaterialModule} from './material-module';
 
@@ -32,9 +34,6 @@ import { MatExpansionPanel, MatAccordion, MatExpansionPanelTitle} from '@angular
     TestPageComponent,
     DialogsComponent,
 
-
-
-   // DialogComponent
   ],
   imports: [
     // DemoMaterialModule,
@@ -49,6 +48,10 @@ import { MatExpansionPanel, MatAccordion, MatExpansionPanelTitle} from '@angular
     MatDialogModule,
 
     MatExpansionModule,
+
+    MatFormFieldModule,
+
+    MatInputModule,
   ],
   providers: [
   ],
