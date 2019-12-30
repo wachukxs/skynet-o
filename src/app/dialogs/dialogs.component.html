@@ -33,14 +33,14 @@
     </mat-form-field> -->
 
     <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="addEvent('change', $event)">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
   </form>
 
-  <p *ngIf="selected != undefined">Showing {{selected + 's'}}</p>
+  <p *ngIf="selected != undefined && time != undefined">Showing {{selected + 's'}} from {{ time }}</p>
 
 
   <mat-accordion>

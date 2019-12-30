@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 // import { NgModule } from '@angular/core';
 
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 
 // import {MatExpansionModule, MatExpansionPanelHeader, MatExpansionPanelDescription} from '@angular/material';
 
@@ -25,8 +26,15 @@ export interface DialogData {
 })
 export class DialogsComponent implements OnInit {
   panelOpenState = false;
-  selected: string; // = 'option2';
+  selected: string;
+  time: string;
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    // this.events.push(`${type}: ${event.value}`);
+    console.log(`${type}: ${event.value.toDateString()}`);
+    this.time = event.value.toDateString();
+  }
 
   ngOnInit() {
   }
