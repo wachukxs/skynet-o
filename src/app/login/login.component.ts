@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     if (customerData.username === 'demo' && customerData.password === 'demo') {
       console.log('yessssssssssssssssss');
 
-      this.router.navigate(['/home-page-dashboard']);
+      this.router.navigate(['home-page-dashboard']);
     } else {
       // this.bioSection.controls.
     }

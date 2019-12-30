@@ -25,59 +25,72 @@
     /* padding: 16px; */
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     transition: all 0.2s ease-in-out;
     /* line-height: 24px; */
   }
 
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
 
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(black, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
   </style>
+
+<style>
+  .content {
+      display: flex;
+      margin: 32px auto;
+      padding: 0 16px;
+      max-width: 960px;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+  <style>
+    .spacer {
+        flex: 1;
+      }
+    .toolbar {
+        height: 60px;
+        margin: 0px 0px 8px 0px;
+        display: flex;
+        align-items: center;
+        background-color: #ec540e;
+        color: white;
+        font-weight: 600;
+      }
+    
+      .toolbar img {
+        margin: 0 16px;
+      }
+    
+      .toolbar #twitter-logo {
+        height: 40px;
+        margin: 0 16px;
+      }
+    
+      .toolbar #twitter-logo:hover {
+        opacity: 0.8;
+      }
+    </style>
+    
+    
+    <!-- Toolbar -->
+    <div class="toolbar" role="banner">
+      
+      <!-- <a style="padding-left: 15px; padding-right: 25px;" routerLink="home-page">Home</a> -->
+      <a style="padding-left: 15px; padding-right: 25px;" routerLink="/login">Logout</a>
+        <!-- <div class="spacer"></div> -->
+    
+        <!-- <a  routerLink="login">Login</a> -->
+    </div>
+  
 
 
 <div class="content">
-  <p>Check out some of our flight details here</p>
-
-<button *ngFor="let item of airports; index as i;" mat-button (click)="openDialog(item)">Check options for <b> {{ item.name }} </b> </button>
-
+  <p>Click any box to check out flight details</p>
 </div>
 
 <div class="card-container">
-  <div class="card"  *ngFor="let item of airports" (click)="openDialog(item)">
+  <div class="card" *ngFor="let item of airports; index as i" (click)="openDialog(item)">
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>{{ item.name }}</mat-card-title>
@@ -89,9 +102,10 @@
           The Shiba Inu
         </p>
       </mat-card-content> -->
-      <mat-card-actions>
+      
+      <!-- <mat-card-actions>
         <button mat-button (click)="openDialog(item)">DETAILS</button>
-      </mat-card-actions>
+      </mat-card-actions> -->
     </mat-card>
   </div>
 </div>
