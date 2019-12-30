@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { NgModule } from '@angular/core';
+// import { NgModule } from '@angular/core';
 
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 // import {MatExpansionModule, MatExpansionPanelHeader, MatExpansionPanelDescription} from '@angular/material';
 
@@ -12,14 +12,10 @@ export interface DialogData {
 }
 
 
-@NgModule({
+/* @NgModule({
   imports: [
-    /* MatExpansionPanelDescription,
-    MatExpansionModule,
-    MatExpansionPanelHeader, */
-    // MatDialog,
   ],
-})
+}) */
 
 
 @Component({
@@ -29,7 +25,7 @@ export interface DialogData {
 })
 export class DialogsComponent implements OnInit {
   panelOpenState = false;
-  selected: string ; // = 'option2';
+  selected: string; // = 'option2';
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit() {
