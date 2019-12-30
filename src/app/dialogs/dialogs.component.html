@@ -13,7 +13,7 @@
 </div> -->
 
 
-<h1 mat-dialog-title>Flight Details</h1>
+<h1 mat-dialog-title>Flight Details from {{ data.country }}</h1>
 <div mat-dialog-content>
 
   <form>
@@ -40,10 +40,15 @@
 
   </form>
 
-  <p *ngIf="selected != undefined && time != undefined">Showing {{selected + 's'}} from {{ time }}</p>
+  <p *ngIf="selected != undefined && time != undefined">
+    Showing {{selected + 's'}} from {{ time }}
+    <span class="lds-dual-ring"></span>
+  </p>
 
 
   <mat-accordion>
+
+    
     
     <mat-expansion-panel *ngFor="let item of all; index as i">
       <mat-expansion-panel-header>
@@ -54,12 +59,14 @@
           ICAO24: {{ item.icao24 }}
         </mat-panel-description>
       </mat-expansion-panel-header>
+      <p>Airport: {{ data.name }}</p>
+
       <p>Depature Time: {{ item.firstSeen }}</p>
 
       <p>ETA: {{ item.lastSeen }}</p>
     </mat-expansion-panel>
 
-    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Self aware panel
@@ -69,8 +76,9 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
+    </mat-expansion-panel> -->
 
+    <mat-divider *ngIf="all.length > 0"></mat-divider>
 
   </mat-accordion>
 

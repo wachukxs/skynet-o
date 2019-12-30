@@ -11,6 +11,8 @@ export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
   arr: Array<any>;
   dep: Array<any>;
+  country: string;
+  name: string;
 }
 
 
@@ -31,7 +33,7 @@ export class DialogsComponent implements OnInit {
   selected = 'departure';
   time: string;
   timeUnix: string;
-  all: Array<any>;
+  all: Array<any> = [];
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private http: HttpClient) { }
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {

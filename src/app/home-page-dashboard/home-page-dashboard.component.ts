@@ -98,11 +98,13 @@ export class HomePageDashboardComponent implements OnInit {
   openDialog(w) {
     this.dialogRef = this.dialog.open(DialogsComponent, {
       data: {
-        code: w,
+        code: w.code,
+        country: w.country,
+        name: w.name,
         animal: 'panda',
         airport: 'NYC',
-        arr: this.all[w].arr,
-        dep: this.all[w].dep
+        arr: this.all[w.code].arr,
+        dep: this.all[w.code].dep
       }
     });
   }

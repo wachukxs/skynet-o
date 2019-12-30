@@ -7,62 +7,91 @@
       flex-direction: column;
       align-items: center;
     }
+
+    .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    /* height: 40px; */
+    width: 200px;
+    margin: 0 8px 16px;
+    /* padding: 16px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    /* line-height: 24px; */
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(black, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
   </style>
 
 
 <div class="content">
   <p>Check out some of our flight details here</p>
 
-<!-- <button class="button" (click)="showFlights()">See flights (in console too!)</button> -->
+<button *ngFor="let item of airports; index as i;" mat-button (click)="openDialog(item)">Check options for <b> {{ item.name }} </b> </button>
 
-<button *ngFor="let item of airports; index as i;" mat-button (click)="openDialog(item.code)">Check options for <b> {{ item.name }} </b> </button>
+</div>
 
-<button mat-button *ngIf="all.KATL.arr.length == 0">Network Error. Please reload the page</button>
-
-<!-- <button mat-button (click)="openDialog()">Open dialog 1</button>
-
-<button mat-button (click)="openDialog()">Open dialog 2</button>
-
-<button mat-button (click)="openDialog()">Open dialog 3</button>
-
-<button mat-button (click)="openDialog()">Open dialog 4</button>
-
-<button mat-button (click)="openDialog()">Open dialog 5</button>
-
-<button mat-button (click)="openDialog()">Open dialog 6</button>
-
-<button mat-button (click)="openDialog()">Open dialog 7</button>
-
-<button mat-button (click)="openDialog()">Open dialog 8</button>
-
-<button mat-button (click)="openDialog()">Open dialog 9</button>
-
-<button mat-button (click)="openDialog()">Open dialog 10</button> -->
-
-<!-- <mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>1</mat-grid-tile>
-  <mat-grid-tile>2</mat-grid-tile>
-  <mat-grid-tile>3</mat-grid-tile>
-  <mat-grid-tile>4</mat-grid-tile>
-</mat-grid-list> -->
-
-<!-- <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card> -->
+<div class="card-container">
+  <div class="card"  *ngFor="let item of airports" (click)="openDialog(item)">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{ item.name }}</mat-card-title>
+        <mat-card-subtitle>{{ item.country }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <!-- <mat-card-content>
+        <p>
+          The Shiba Inu
+        </p>
+      </mat-card-content> -->
+      <mat-card-actions>
+        <button mat-button (click)="openDialog(item)">DETAILS</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
