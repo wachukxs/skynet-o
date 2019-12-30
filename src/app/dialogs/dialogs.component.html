@@ -55,6 +55,19 @@
       </mat-select>
     </mat-form-field>
 
+    <mat-form-field>
+      <mat-label>No. of days from</mat-label>
+      <mat-select [(value)]="diff">
+        <mat-option value="1">1 day from</mat-option>
+        <mat-option value="2">2 days from</mat-option>
+        <mat-option value="3">3 day from</mat-option>
+        <mat-option value="4">4 days from</mat-option>
+        <mat-option value="5">5 day from</mat-option>
+        <mat-option value="6">6 days from</mat-option>
+        <mat-option value="7">7 day from</mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <!-- <mat-form-field>
       <input matInput [matDatepicker]="myDatepicker">
       <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
@@ -62,7 +75,7 @@
     </mat-form-field> -->
 
     <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="addEvent('change', $event)">
+      <input max="" matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="addEvent('change', $event)">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -75,7 +88,8 @@
   </p>
 
   <div *ngIf="selected != undefined && time != undefined" class="align-middle align-items-center">
-    <div *ngIf="all.length == 0" class="lds-dual-ring"></div>
+    <div *ngIf="all.length == 0 && e == undefined" class="lds-dual-ring"></div>
+    <div *ngIf="e != undefined">{{ e }}</div>
   </div>
 
 

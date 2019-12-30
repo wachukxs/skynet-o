@@ -33,7 +33,9 @@ export class DialogsComponent implements OnInit {
   selected = 'departure';
   time: string;
   timeUnix: string;
+  diff: string;
   all: Array<any> = [];
+  e: string;
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private http: HttpClient) { }
 
   tellTime(f) {
@@ -42,6 +44,8 @@ export class DialogsComponent implements OnInit {
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     // this.events.push(`${type}: ${event.value}`);
+
+    this.e = undefined;
     console.log(`${type}: ${event.value.toDateString()} | for ${this.data.code}`);
 
     console.log(`${event.value.toISOString()}:it`);
@@ -56,7 +60,7 @@ export class DialogsComponent implements OnInit {
       // https://flaviocopes.com/how-to-get-timestamp-javascript/
 
       // https://stackoverflow.com/a/15911310
-      const later = Math.floor(new Date(event.value.toISOString()).getTime() / 1000) + (7 * 24 * 60 * 60);
+      const later = Math.floor(new Date(event.value.toISOString()).getTime() / 1000) + ((this.diff ? parseInt(this.diff, 10) : 7) * 24 * 60 * 60);
       const g = `https://opensky-network.org/api/flights/${this.selected}/?airport=${this.data.code}&begin=${Math.floor(new Date(event.value.toISOString()).getTime() / 1000).toString()}&end=${later}`;
 
       console.log(`make call ${g}`);
@@ -76,7 +80,7 @@ export class DialogsComponent implements OnInit {
         console.log('fetched data:', data);
         // draw the button when we get here later
       }, // success path
-        error => { console.error('we had err fetching:', error); } // error path
+        error => { console.error('we had err fetching:', error); this.e = 'Error! Probably network, please try again. Pick another date.'; } // error path
       );
     }
   }
