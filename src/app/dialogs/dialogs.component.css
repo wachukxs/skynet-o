@@ -1,4 +1,8 @@
 mat-form-field {
     margin-right: 12px;
 }
+
+mat-accordion {
+    padding-bottom: 7px;
+}
   
