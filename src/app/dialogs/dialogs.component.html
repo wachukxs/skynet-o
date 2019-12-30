@@ -1,3 +1,32 @@
+<style>
+  
+.lds-dual-ring {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 34px;
+    height: 34px;
+    margin: 4px;
+    border-radius: 50%;
+    border: 3px solid #000000;
+    border-color: #000000 transparent #000000 transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+</style>
+
 <!-- <p>dialogs works!</p> -->
 
 <!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
@@ -42,8 +71,12 @@
 
   <p *ngIf="selected != undefined && time != undefined">
     Showing {{selected + 's'}} from {{ time }}
-    <span class="lds-dual-ring"></span>
+    
   </p>
+
+  <div *ngIf="selected != undefined && time != undefined" class="align-middle align-items-center">
+    <div *ngIf="all.length == 0" class="lds-dual-ring"></div>
+  </div>
 
 
   <mat-accordion>
@@ -61,9 +94,9 @@
       </mat-expansion-panel-header>
       <p>Airport: {{ data.name }}</p>
 
-      <p>Depature Time: {{ item.firstSeen }}</p>
+      <p><b>Depature Time:</b> {{ tellTime(item.firstSeen) }}</p>
 
-      <p>ETA: {{ item.lastSeen }}</p>
+      <p><b>ETA:</b> {{ tellTime(item.lastSeen) }}</p>
     </mat-expansion-panel>
 
     <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">

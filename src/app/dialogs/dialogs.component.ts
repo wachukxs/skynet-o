@@ -36,6 +36,10 @@ export class DialogsComponent implements OnInit {
   all: Array<any> = [];
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private http: HttpClient) { }
 
+  tellTime(f) {
+    return new Date(parseInt(f, 10) * 1000).toTimeString();
+  }
+
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     // this.events.push(`${type}: ${event.value}`);
     console.log(`${type}: ${event.value.toDateString()} | for ${this.data.code}`);
@@ -54,7 +58,7 @@ export class DialogsComponent implements OnInit {
       // https://stackoverflow.com/a/15911310
       const later = Math.floor(new Date(event.value.toISOString()).getTime() / 1000) + (7 * 24 * 60 * 60);
       const g = `https://opensky-network.org/api/flights/${this.selected}/?airport=${this.data.code}&begin=${Math.floor(new Date(event.value.toISOString()).getTime() / 1000).toString()}&end=${later}`;
-      
+
       console.log(`make call ${g}`);
 
       this.http.get(g, {
@@ -62,12 +66,12 @@ export class DialogsComponent implements OnInit {
           'Access-Control-Allow-Origin': '*/*'
         })
       }).subscribe((data: Array<object>) => {
-        
+
         if (data.length > 20) {
           // truncate it and alert user
           data.length = 20;
           this.all = data;
-          
+
         }
         console.log('fetched data:', data);
         // draw the button when we get here later
