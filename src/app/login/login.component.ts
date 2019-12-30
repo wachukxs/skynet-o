@@ -5,6 +5,7 @@ import { FormBuilder, ReactiveFormsModule, FormControl, FormGroup, Validators } 
 
 
 import { Router } from '@angular/router';
+import { invalid } from '@angular/compiler/src/render3/view/util';
 
 @NgModule({
   imports: [
@@ -31,8 +32,8 @@ export class LoginComponent implements OnInit {
 
   getErrorMessage() {
     return this.bioSection.hasError('required') ? 'You must enter a value' :
-        this.bioSection.hasError('required') ? 'Not a valid value' :
-            '';
+        this.bioSection.hasError('error') ? 'You must enter a value' :
+            'Wrong value';
   }
 
   constructor(private formBuilder: FormBuilder, private router: Router) {
@@ -58,7 +59,7 @@ export class LoginComponent implements OnInit {
 
       this.router.navigate(['home-page-dashboard']);
     } else {
-      // this.bioSection.controls.
+      this.bioSection.setErrors({error: true});
     }
   }
   // this.router.navigate(['/home-page-dashboard']);

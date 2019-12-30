@@ -52,24 +52,26 @@
 
 </form> -->
 
-<div class="example-container example-form">
-  <form [formGroup]="bioSection" (ngSubmit)="onSubmit(bioSection.value)">
-    <mat-form-field><!--[formControl]="bioSection.username"-->
-      <input matInput placeholder="Enter username" formControlName="username" required>
-      <mat-error *ngIf="bioSection.invalid">{{getErrorMessage()}}</mat-error>
-    </mat-form-field>
-
-    <br>
+<mat-card>
+  <div class="example-container example-form">
+    <form [formGroup]="bioSection" (ngSubmit)="onSubmit(bioSection.value)">
+      <mat-form-field><!--[formControl]="bioSection.username"-->
+        <input matInput placeholder="Enter username" formControlName="username" required>
+        <mat-error *ngIf="bioSection.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
   
-    <mat-form-field><!--[formControl]="bioSection.username"-->
-      <input matInput placeholder="Enter password" formControlName="password" required>
-      <mat-error *ngIf="bioSection.invalid">{{getErrorMessage()}}</mat-error>
-    </mat-form-field>
-
-    <br>
-
-    <button mat-button type="submit">Login</button>
-  </form>
-</div>
+      <br>
+    
+      <mat-form-field><!--[formControl]="bioSection.username"-->
+        <input matInput placeholder="Enter password" formControlName="password" required>
+        <mat-error *ngIf="bioSection.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+  
+      <br>
+  
+      <button mat-button type="submit">Login</button>
+    </form>
+  </div>
+</mat-card>
 
 </div>
