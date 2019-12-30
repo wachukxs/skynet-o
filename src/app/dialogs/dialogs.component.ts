@@ -36,6 +36,7 @@ export class DialogsComponent implements OnInit {
   diff: string;
   all: Array<any> = [];
   e: string;
+  msg: string;
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private http: HttpClient) { }
 
   tellTime(f) {
@@ -46,6 +47,7 @@ export class DialogsComponent implements OnInit {
     // this.events.push(`${type}: ${event.value}`);
 
     this.e = undefined;
+    this.msg = undefined;
     console.log(`${type}: ${event.value.toDateString()} | for ${this.data.code}`);
 
     console.log(`${event.value.toISOString()}:it`);
@@ -75,7 +77,7 @@ export class DialogsComponent implements OnInit {
           // truncate it and alert user
           data.length = 20;
           this.all = data;
-
+          this.msg = 'Some results have been ommited for brevity';
         }
         console.log('fetched data:', data);
         // draw the button when we get here later

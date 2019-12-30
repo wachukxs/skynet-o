@@ -43,6 +43,8 @@
 
 
 <h1 mat-dialog-title>Flight Details from {{ data.country }}</h1>
+
+
 <div mat-dialog-content>
 
   <form>
@@ -83,7 +85,7 @@
   </form>
 
   <p *ngIf="selected != undefined && time != undefined">
-    Showing {{selected + 's'}} from {{ time }}
+    Showing {{selected + 's'}} {{ diff }} days from {{ time }}
     
   </p>
 
@@ -127,12 +129,14 @@
 
     <mat-divider *ngIf="all.length > 0"></mat-divider>
 
+    <small *ngIf="msg != undefined">dfsajo</small>
+
   </mat-accordion>
 
 
 
 </div>
-
 <mat-dialog-actions align="end">
+  
   <button mat-button mat-dialog-close>Close</button>
 </mat-dialog-actions>
