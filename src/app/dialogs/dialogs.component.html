@@ -27,20 +27,6 @@
   
 </style>
 
-<!-- <p>dialogs works!</p> -->
-
-<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Close</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
-</div> -->
-
 
 <h1 mat-dialog-title>Flight Details from {{ data.country }}</h1>
 
@@ -114,18 +100,6 @@
 
       <p><b>ETA:</b> {{ tellTime(item.lastSeen) }}</p>
     </mat-expansion-panel>
-
-    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel> -->
 
     
     <mat-divider *ngIf="all.length > 0"></mat-divider>
