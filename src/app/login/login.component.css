@@ -3,6 +3,14 @@
     flex-direction: column;
   }
   
-  .example-container > * {
+  .example-container > mat-form-field {
     width: 100%;
+  }
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  img.img {
+    width: 350px;
+    padding-bottom: 32px;
   }

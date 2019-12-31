@@ -82,7 +82,10 @@ export class DialogsComponent implements OnInit {
         console.log('fetched data:', data);
         // draw the button when we get here later
       }, // success path
-        error => { console.error('we had err fetching:', error); this.e = 'Error! Probably network, please try again. Pick another date.'; } // error path
+        error => {
+          console.error('we had err fetching:', error);
+          this.e = 'Error! Please try again. Pick another date. If it persists try another airport.';
+        }
       );
     }
   }

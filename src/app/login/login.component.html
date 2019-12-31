@@ -8,33 +8,20 @@
     align-items: center;
   }
 </style>
-<style>
-  .toolbar {
-      height: 60px;
-      margin: 0px 0px 8px 0px;
-      display: flex;
-      align-items: center;
-      background-color: #ec540e;
-      color: white;
-      font-weight: 600;
-    }
-  
-    
-  </style>
   
   
-  <!-- Toolbar -->
-  <div class="toolbar" role="banner">
-    
-    <!-- <a style="padding-left: 15px; padding-right: 25px;" routerLink="home-page">Home</a> -->
-    <a style="padding-left: 15px; padding-right: 25px;" >Welcome</a>
-      <!-- <div class="spacer"></div> -->
+  <header>
+    <mat-toolbar class="mat-toolbar mat-primary">
+      SkyNet-O
+    </mat-toolbar>
+  </header>
+
   
-      <!-- <a  routerLink="login">Login</a> -->
-  </div>
 
 <div class="content">
-  <h2>Enter login details</h2>
+  <img src="https://opensky-network.org/images/opensky_logo.png" class="img">
+  
+  
 
 <!-- <form [formGroup]="bioSection" (ngSubmit)="onSubmit(bioSection.value)">
 
@@ -52,26 +39,41 @@
 
 </form> -->
 
-<mat-card>
+<mat-card class="">
+  <mat-card-header>
+    <mat-card-title>
+      <h2>Enter login details</h2>
+    </mat-card-title>
+  </mat-card-header>
   <div class="example-container example-form">
     <form [formGroup]="bioSection" (ngSubmit)="onSubmit(bioSection.value)">
-      <mat-form-field><!--[formControl]="bioSection.username"-->
-        <input matInput placeholder="Enter username" formControlName="username" required>
-        <mat-error *ngIf="bioSection.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
-  
-      <br>
+      
+      <div class="example-container">
+        <mat-form-field><!--[formControl]="bioSection.username"-->
+          <input matInput placeholder="Enter username" formControlName="username" required>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-error *ngIf="bioSection.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
     
-      <mat-form-field><!--[formControl]="bioSection.username"-->
-        <input matInput placeholder="Enter password" formControlName="password" required>
-        <mat-error *ngIf="bioSection.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
+      
+        <mat-form-field><!--[formControl]="bioSection.username"-->
+          <input matInput placeholder="Enter password" formControlName="password" required>
+          
+            <mat-icon matSuffix>visibility_off</mat-icon>
+
+          <mat-error *ngIf="bioSection.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
   
-      <br>
   
-      <button mat-button type="submit">Login</button>
+      <button mat-button type="submit" class="mat-button mat-primary mat-raised-button">Login</button>
     </form>
   </div>
 </mat-card>
 
 </div>
+<footer style="text-align: center;">
+  <mat-toolbar class="mat-toolbar mat-primary" style="display: inline-grid;">
+    <small>© 2019 All right reserved.</small>
+  </mat-toolbar>
+</footer>

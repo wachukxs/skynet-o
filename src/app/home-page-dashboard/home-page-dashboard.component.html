@@ -40,15 +40,13 @@
       }
   </style>
     
-    <!-- Toolbar -->
-    <div class="toolbar" role="banner">
-      
-      <!-- <a style="padding-left: 15px; padding-right: 25px;" routerLink="home-page">Home</a> -->
-      <a style="padding-left: 15px; padding-right: 25px; padding-top: 15px;" routerLink="/login">Logout</a>
-        <!-- <div class="spacer"></div> -->
-    
-        <!-- <a  routerLink="login">Login</a> -->
-    </div>
+    <header>
+      <mat-toolbar class="mat-toolbar mat-primary">
+        SkyNet-O
+        <span style="flex: 1;"></span>
+        <a routerLink="/login">Logout</a>
+      </mat-toolbar>
+    </header>
   
 
 
@@ -70,9 +68,10 @@
         </p>
       </mat-card-content> -->
       
-      <!-- <mat-card-actions>
-        <button mat-button (click)="openDialog(item)">DETAILS</button>
-      </mat-card-actions> -->
+      <mat-card-actions>
+        <!-- <button mat-button (click)="openDialog(item)">DETAILS</button> -->
+      <p>ICA024: {{ item.code }}</p>
+      </mat-card-actions>
     </mat-card>
   </div>
 </div>

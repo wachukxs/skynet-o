@@ -85,7 +85,7 @@
   </form>
 
   <p *ngIf="selected != undefined && time != undefined">
-    Showing {{selected + 's'}} {{ diff }} days from {{ time }}
+    Showing {{selected + 's'}} {{ (diff || '7') }} days from {{ time }}
     
   </p>
 
@@ -127,13 +127,13 @@
       <p>I'm visible because I am open</p>
     </mat-expansion-panel> -->
 
+    
     <mat-divider *ngIf="all.length > 0"></mat-divider>
-
-    <small *ngIf="msg != undefined">dfsajo</small>
-
   </mat-accordion>
 
+  
 
+  <small *ngIf="msg != undefined">Some results have been ommitted for brevity</small>
 
 </div>
 <mat-dialog-actions align="end">
