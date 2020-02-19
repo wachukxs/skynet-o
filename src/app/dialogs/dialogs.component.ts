@@ -84,7 +84,13 @@ export class DialogsComponent implements OnInit {
       }, // success path
         error => {
           console.error('we had err fetching:', error);
-          this.e = 'Error! Please try again. Pick another date. If it persists try another airport.';
+
+          // https://opensky-network.org/apidoc/rest.html#id14
+          if (error.status === 404 && error.statusText === 'OK') {
+            this.e = 'No flight data during the selected date. Pick a previous date.';
+          } else {
+            this.e = 'Error! Please try again. Pick another date. If it persists try another airport.';
+          }
         }
       );
     }
